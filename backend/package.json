@@ -24,7 +24,7 @@
     "pdfkit": "^0.20.1",
     "pg": "^8.18.0",
     "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.28"
+    "typeorm": "^0.3.31"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
