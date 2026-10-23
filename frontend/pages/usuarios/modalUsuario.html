@@ -1,0 +1,166 @@
+<div id="modal" class="modal" style="display: none;">
+
+    <div class="modal-box">
+
+        <h2>Cadastrar Usuário</h2>
+
+        <label for="nome">
+            Nome <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Nome"
+        >
+
+        <label for="email">
+            E-mail <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="E-mail"
+        >
+
+        <label for="senha">
+            Senha <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Senha"
+        >
+
+        <label for="confirmSenha">
+            Confirmar senha <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="password"
+            id="confirmSenha"
+            placeholder="Confirmar senha"
+        >
+
+        <label for="role">
+            Perfil
+        </label>
+
+        <select id="role">
+
+            <option value="administrador">
+                Administrador
+            </option>
+
+            <option value="gestor">
+                Gestor
+            </option>
+
+            <option value="financeiro">
+                Financeiro
+            </option>
+
+        </select>
+
+        <p id="error"></p>
+
+        <div class="modal-acoes">
+
+            <button
+                type="button"
+                class="botao botao-principal"
+                id="btnSalvar"
+            >
+                Salvar
+            </button>
+
+            <button
+                type="button"
+                class="botao botao-cancelar"
+                id="btnCancelar"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="modalEditar" class="modal" style="display: none;">
+
+    <div class="modal-box">
+
+        <h2>Editar Usuário</h2>
+
+        <input
+            type="hidden"
+            id="editarId"
+        >
+
+        <label for="editarNome">
+            Nome <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="text"
+            id="editarNome"
+            placeholder="Nome"
+        >
+
+        <label for="editarEmail">
+            E-mail <span class="obrigatorio">*</span>
+        </label>
+
+        <input
+            type="email"
+            id="editarEmail"
+            placeholder="E-mail"
+        >
+
+        <label for="editarRole">
+            Perfil
+        </label>
+
+        <select id="editarRole">
+
+            <option value="administrador">
+                Administrador
+            </option>
+
+            <option value="gestor">
+                Gestor
+            </option>
+
+            <option value="financeiro">
+                Financeiro
+            </option>
+
+        </select>
+
+        <div class="modal-acoes">
+
+            <button
+                type="button"
+                class="botao botao-principal"
+                id="btnAtualizar"
+            >
+                Salvar
+            </button>
+
+            <button
+                type="button"
+                class="botao botao-cancelar"
+                id="btnCancelarEditar"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

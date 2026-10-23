@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Plano de Contas</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/compartilhados/navbar.css"
+    >
+    <link
+        rel="stylesheet"
+        href="../../css/plano-de-contas/planoDeConta.css"
+    >
+
+</head>
+
+
+<body class="dashboard">
+
+    <header id="navbarGlobal" class="navbar-global" data-pagina="plano-de-contas"></header>
+
+    <div class="top-bar">
+
+        <h1>
+            Plano de Contas
+        </h1>
+
+    </div>
+
+
+    <hr>
+
+
+    
+
+    <div class="dvCaixas">
+
+
+        
+
+        <div>
+
+            <b>
+                Total de Planos
+            </b>
+
+            <br>
+
+            <span id="totalPlanosDeContas">
+                0
+            </span>
+
+        </div>
+
+
+        
+
+        <div>
+
+            <b>
+                Planos Ativos
+            </b>
+
+            <br>
+
+            <span id="totalPlanosAtivos">
+                0
+            </span>
+
+        </div>
+
+
+        
+
+        <div>
+
+            <b>
+                Planos Inativos
+            </b>
+
+            <br>
+
+            <span id="totalPlanosInativos">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="dvBusca">
+
+
+        
+
+        <input
+            type="text"
+            id="campoBusca"
+            placeholder="Digite o nome do plano de contas..."
+        >
+
+
+        
+
+        <button
+            type="button"
+            class="btnBuscar"
+            id="botaoBuscar"
+        >
+
+            Buscar
+
+        </button>
+
+
+        
+
+        <button
+            type="button"
+            class="btnAdicionar"
+            id="botaoAdicionar"
+        >
+
+            Adicionar
+
+        </button>
+
+    </div>
+
+
+    
+
+    <div class="dvTabela">
+
+        <table class="tabela">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Nome
+                    </th>
+
+
+                    <th>
+                        Descrição
+                    </th>
+
+
+                    <th>
+                        Status
+                    </th>
+
+
+                    <th>
+                        Ações
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tabelaPlanoDeConta">
+
+                
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    
+
+    <div id="containerModais"></div>
+
+
+    
+    <script src="../../js/compartilhados/navbar.js"></script>
+    <script src="../../js/compartilhados/modalPerfil.js"></script>
+    <script src="../../js/plano-de-contas/planoDeConta.js"></script>
+
+
+</body>
+
+</html>

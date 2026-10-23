@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Relatórios</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/compartilhados/navbar.css"
+    >
+    <link
+        rel="stylesheet"
+        href="../../css/relatorios/relatorios.css"
+    >
+
+</head>
+
+
+<body>
+
+    <header id="navbarGlobal" class="navbar-global" data-pagina="relatorios"></header>
+
+    <div class="top-bar">
+
+        <h1>
+            Relatórios
+        </h1>
+
+    </div>
+
+
+    <hr>
+
+
+    
+
+    <section class="secaoFiltros">
+
+        <h2>
+            Filtros do relatório
+        </h2>
+
+
+        <div class="gridFiltros">
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="dataInicial">
+                    Data inicial
+                </label>
+
+                <input
+                    type="date"
+                    id="dataInicial"
+                >
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="dataFinal">
+                    Data final
+                </label>
+
+                <input
+                    type="date"
+                    id="dataFinal"
+                >
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="clienteOuFornecedor">
+                    Cliente / Fornecedor
+                </label>
+
+                <select
+                    id="clienteOuFornecedor"
+                >
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="planoDeConta">
+                    Plano de Contas
+                </label>
+
+                <select
+                    id="planoDeConta"
+                >
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="tipo">
+                    Tipo
+                </label>
+
+                <select
+                    id="tipo"
+                >
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="receita">
+                        Receitas
+                    </option>
+
+                    <option value="despesa">
+                        Despesas
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="status">
+                    Status
+                </label>
+
+                <select
+                    id="status"
+                >
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="aberto">
+                        Em aberto
+                    </option>
+
+                    <option value="vencido">
+                        Vencido
+                    </option>
+
+                    <option value="pago">
+                        Pago
+                    </option>
+
+                    <option value="recebido">
+                        Recebido
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="usuario">
+                    Usuário
+                </label>
+
+                <select
+                    id="usuario"
+                >
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="valorMinimo">
+                    Valor mínimo
+                </label>
+
+                <input
+                    type="number"
+                    id="valorMinimo"
+                    min="0"
+                    step="0.01"
+                    placeholder="R$ 0,00"
+                >
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="valorMaximo">
+                    Valor máximo
+                </label>
+
+                <input
+                    type="number"
+                    id="valorMaximo"
+                    min="0"
+                    step="0.01"
+                    placeholder="R$ 0,00"
+                >
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="ordenarPor">
+                    Ordenar por
+                </label>
+
+                <select
+                    id="ordenarPor"
+                >
+
+                    <option value="data_vencimento">
+                        Data de vencimento
+                    </option>
+
+                    <option value="descricao">
+                        Descrição
+                    </option>
+
+                    <option value="valor">
+                        Valor
+                    </option>
+
+                    <option value="tipo">
+                        Tipo
+                    </option>
+
+                    <option value="status">
+                        Status
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            
+
+            <div class="campoFiltro">
+
+                <label for="ordem">
+                    Ordem
+                </label>
+
+                <select
+                    id="ordem"
+                >
+
+                    <option value="asc">
+                        Crescente
+                    </option>
+
+                    <option value="desc">
+                        Decrescente
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        
+
+        <div class="acoesRelatorio">
+
+            <button
+                type="button"
+                id="botaoVisualizar"
+                class="botao botaoVisualizar"
+            >
+                Visualizar relatório
+            </button>
+
+
+            <button
+                type="button"
+                id="botaoPDF"
+                class="botao botaoPDF"
+            >
+                Gerar PDF
+            </button>
+
+
+            <button
+                type="button"
+                id="botaoExcel"
+                class="botao botaoExcel"
+            >
+                Exportar Excel
+            </button>
+
+
+            <button
+                type="button"
+                id="botaoLimpar"
+                class="botao botaoLimpar"
+            >
+                Limpar filtros
+            </button>
+
+        </div>
+
+
+        <div
+            id="mensagem"
+            class="mensagem"
+        ></div>
+
+    </section>
+
+
+    
+
+    <section class="secaoResumo">
+
+        <h2>
+            Resumo
+        </h2>
+
+
+        <div class="gridResumo">
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Total de contas
+                </span>
+
+                <strong id="totalContas">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Receitas
+                </span>
+
+                <strong id="totalReceitas">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Despesas
+                </span>
+
+                <strong id="totalDespesas">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Em aberto
+                </span>
+
+                <strong id="totalAberto">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Vencido
+                </span>
+
+                <strong id="totalVencido">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Pago
+                </span>
+
+                <strong id="totalPago">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo">
+
+                <span>
+                    Recebido
+                </span>
+
+                <strong id="totalRecebido">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="cardResumo destaque">
+
+                <span>
+                    Saldo
+                </span>
+
+                <strong id="saldo">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section class="secaoResultado">
+
+        <h2>
+            Contas encontradas
+        </h2>
+
+
+        <div class="tabelaContainer">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Tipo
+                        </th>
+
+                        <th>
+                            Descrição
+                        </th>
+
+                        <th>
+                            Valor
+                        </th>
+
+                        <th>
+                            Cliente / Fornecedor
+                        </th>
+
+                        <th>
+                            Plano de Contas
+                        </th>
+
+                        <th>
+                            Vencimento
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Usuário
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tabelaRelatorio">
+
+                    <tr>
+
+                        <td
+                            colspan="8"
+                            class="tabela-vazia"
+                        >
+
+                            Utilize os filtros
+                            para visualizar o relatório.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <div id="containerModais"></div>
+
+
+    
+    <script src="../../js/utils/autenticacao.js"></script>
+    <script src="../../js/compartilhados/navbar.js"></script>
+    <script src="../../js/compartilhados/modalPerfil.js"></script>
+    <script src="../../js/relatorios/relatorioApi.js"></script>
+    <script src="../../js/relatorios/relatorios.js"></script>
+
+</body>
+
+</html>

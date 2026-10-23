@@ -1,32 +1,60 @@
 import { NextFunction, Request, Response } from "express";
-import { BadRequestError, UnauthorizedError } from "../utils/api-erros";
+import { ForbiddenError, UnauthorizedError } from "../utils/api-erros";
 import { usuarioRepository } from "../repositories/usuarioRepository";
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
 type JwtPayload = {
-    id: number
-}
+    id: number;
+    role?: string;
+};
 
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
-    const { autorizado } = req.headers
+    const header = req.headers.autorizado || req.headers.authorization;
 
-    if (!autorizado || typeof autorizado !== "string") {
-        throw new UnauthorizedError('Nao autorizado')
+    if (!header || typeof header !== "string") {
+        throw new UnauthorizedError('Não autorizado');
     }
 
-    const token = autorizado.split(' ')[1]
+    const token = header.startsWith('Bearer ') ? header.slice(7).trim() : header.split(' ')[1];
 
-    const {id} = jwt.verify(token, process.env.JWT_PASS ?? '') as JwtPayload
-
-    const usuario = await usuarioRepository.findOneBy({ id })
-
-    if (!usuario) {
-        throw new BadRequestError('E-mail ou senha invalidos')
+    if (!token) {
+        throw new UnauthorizedError('Não autorizado');
     }
 
-    const { senha: _, ...usuarioLogado } = usuario
+    let id: number;
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_PASS ?? '') as JwtPayload;
+        id = decoded.id;
+    } catch {
+        throw new UnauthorizedError('Token inválido ou expirado');
+    }
 
-    req.usuario = usuarioLogado
+    const usuario = await usuarioRepository.findOneBy({ id });
 
-    next()
-}
+    if (!usuario || !usuario.status) {
+        throw new UnauthorizedError('Usuário não encontrado ou inativo');
+    }
+
+    const { senha: _, ...usuarioLogado } = usuario;
+
+    req.usuario = usuarioLogado;
+
+    next();
+};
+
+export const autorizarPorPerfil = (...perfisPermitidos: string[]) => {
+    return async (req: Request, res: Response, next: NextFunction) => {
+        if (!req.usuario) {
+            await authMiddleware(req, res, () => {});
+        }
+
+        const role = req.usuario?.role?.toLowerCase();
+        const permitidos = perfisPermitidos.map(p => p.toLowerCase());
+
+        if (!role || !permitidos.includes(role)) {
+            throw new ForbiddenError('Acesso negado');
+        }
+
+        next();
+    };
+};

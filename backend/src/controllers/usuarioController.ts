@@ -3,41 +3,44 @@ import usuarioService from "../services/usuarioService";
 import { BadRequestError } from "../utils/api-erros";
 
 export class UsuarioController {
-
   async Cadastro(req: Request, res: Response) {
     try {
+      if (req.usuario.role !== 'administrador') {
+        return res.status(403).json({
+          error: "Acesso negado"
+        });
+      }
 
       const { nome, email, senha, confirmSenha, role } = req.body;
-
       const usuario = await usuarioService.Cadastro({
-        nome,
-        email,
-        senha,
-        confirmSenha,
+        nome, 
+        email, 
+        senha, 
+        confirmSenha, 
         role
       });
 
       return res.status(201).json(usuario);
-
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(400).json({ 
+        error: error.message 
+      });
     }
   }
 
   async login(req: Request, res: Response) {
     try {
-
       const { email, senha } = req.body;
-
       const result = await usuarioService.login({
-        email,
+        email, 
         senha
       });
 
       return res.json(result);
-
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(400).json({ 
+        error: error.message 
+      });
     }
   }
 
@@ -47,43 +50,55 @@ export class UsuarioController {
 
   async getUsuarios(req: Request, res: Response) {
     try {
-
       if (req.usuario.role !== 'administrador') {
-        return res.status(403).json({ error: "Acesso negado" });
+        return res.status(403).json({ 
+          error: "Acesso negado" 
+        });
       }
 
       const usuario = await usuarioService.getUsuarios();
 
       return res.json(usuario);
-
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(400).json({ 
+        error: error.message 
+      });
     }
   }
 
   async atualizar(req: Request, res: Response) {
     try {
+      if (req.usuario.role !== 'administrador') {
+        return res.status(403).json({
+          error: "Acesso negado"
+        });
+      }
 
       const { id } = req.params;
       const { nome, email, role, status } = req.body;
-
       const usuario = await usuarioService.atualizar({
-        id,
-        nome,
-        email,
-        role,
+        id, 
+        nome, 
+        email, 
+        role, 
         status
       });
 
       return res.json(usuario);
-
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(400).json({ 
+        error: error.message 
+      });
     }
   }
 
   async inativar(req: Request, res: Response) {
     try {
+      if (req.usuario.role !== 'administrador') {
+        return res.status(403).json({
+          error: "Acesso negado"
+        });
+      }
 
       const id = Number(req.params.id);
       const usuarioLogado = req.usuario;
@@ -100,26 +115,25 @@ export class UsuarioController {
         });
       }
 
-      await usuarioService.inativar(
-        id,
-        usuarioLogado.id
-      );
+      await usuarioService.inativar(id, usuarioLogado.id);
 
       return res.status(200).json({
         message: "Usuário inativado com sucesso"
       });
-
     } catch (error: any) {
-
       return res.status(400).json({
         error: error.message
       });
-
     }
   }
 
   async reativar(req: Request, res: Response) {
     try {
+      if (req.usuario.role !== 'administrador') {
+        return res.status(403).json({
+          error: "Acesso negado"
+        });
+      }
 
       const id = Number(req.params.id);
 
@@ -134,29 +148,23 @@ export class UsuarioController {
       return res.status(200).json({
         message: "Usuário reativado com sucesso"
       });
-
     } catch (error: any) {
-
       return res.status(400).json({
         error: error.message
       });
-
     }
   }
 
   async redefinirSenha(req: Request, res: Response) {
     try {
-
       const { email, newSenha, confirmSenha } = req.body;
-
       const result = await usuarioService.redefinirSenha({
-        email,
-        newSenha,
+        email, 
+        newSenha, 
         confirmSenha
       });
 
       return res.json(result);
-
     } catch (error: any) {
       return res.status(400).json({ error: error.message });
     }

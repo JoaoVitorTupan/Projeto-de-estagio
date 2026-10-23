@@ -15,12 +15,18 @@ export class BadRequestError extends ApiError {
 
 export class NotFoundError extends ApiError {
     constructor(message: string) {
-        super(message, 484)
+        super(message, 404)
     }
 }
 
 export class UnauthorizedError extends ApiError {
-    constructor(message: string) {
+    constructor(message: string = 'Não autorizado') {
         super(message, 401)
+    }
+}
+
+export class ForbiddenError extends ApiError {
+    constructor(message: string = 'Acesso negado') {
+        super(message, 403)
     }
 }

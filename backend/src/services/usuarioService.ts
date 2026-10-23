@@ -3,9 +3,36 @@ import { BadRequestError } from "../utils/api-erros";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+interface CadastroUsuarioDTO {
+  nome: string;
+  email: string;
+  senha: string;
+  confirmSenha: string;
+  role: string;
+}
+
+interface LoginUsuarioDTO {
+  email: string;
+  senha: string;
+}
+
+interface AtualizarUsuarioDTO {
+  id: number | string;
+  nome: string;
+  email: string;
+  role: string;
+  status: boolean;
+}
+
+interface RedefinirSenhaDTO {
+  email: string;
+  newSenha: string;
+  confirmSenha: string;
+}
+
 class UsuarioService {
 
-  async Cadastro({ nome, email, senha, confirmSenha, role }: any) {
+  async Cadastro({ nome, email, senha, confirmSenha, role }: CadastroUsuarioDTO) {
 
     const usuarioExiste = await usuarioRepository.findOneBy({ email });
 
@@ -26,7 +53,7 @@ class UsuarioService {
     }
 
     const hashSenha = await bcrypt.hash(senha, 10);
-
+    
     const newUsuario = usuarioRepository.create({
       nome,
       email,
@@ -41,8 +68,8 @@ class UsuarioService {
     return usuario;
   }
 
-  async login({ email, senha }: any) {
-
+  async login({ email, senha }: LoginUsuarioDTO) {
+    
     const usuario = await usuarioRepository.findOneBy({
       email,
       status: true
@@ -52,9 +79,9 @@ class UsuarioService {
       throw new BadRequestError("E-mail ou senha inválidos");
     }
 
-    const verifyPass = await bcrypt.compare(senha, usuario.senha);
+    const verificarSenha = await bcrypt.compare(senha, usuario.senha);
 
-    if (!verifyPass) {
+    if (!verificarSenha) {
       throw new BadRequestError("E-mail ou senha inválidos");
     }
 
@@ -84,7 +111,7 @@ class UsuarioService {
     });
   }
 
-  async atualizar({ id, nome, email, role, status }: any) {
+  async atualizar({ id, nome, email, role, status }: AtualizarUsuarioDTO) {
 
     const usuario = await usuarioRepository.findOneBy({ id: Number(id) });
 
@@ -115,6 +142,9 @@ class UsuarioService {
   }
 
   async inativar(id: number, usuarioLogadoId: number) {
+    if (id === usuarioLogadoId) {
+      throw new BadRequestError("Não é permitido inativar seu próprio usuário");
+    }
 
     const usuario = await usuarioRepository.findOne({
       where: { id }
@@ -128,7 +158,11 @@ class UsuarioService {
 
     usuario.status = false;
 
-    return await usuarioRepository.save(usuario);
+    await usuarioRepository.save(usuario);
+
+    const { senha: _, ...usuarioInativado } = usuario;
+
+    return usuarioInativado;
   }
 
   async reativar(id: number) {
@@ -145,10 +179,15 @@ class UsuarioService {
 
     usuario.status = true;
 
-    return await usuarioRepository.save(usuario);
-  }
-  async redefinirSenha({ email, newSenha, confirmSenha }: any) {
+    await usuarioRepository.save(usuario);
 
+    const { senha: _, ...usuarioReativado } = usuario;
+
+    return usuarioReativado;
+  }
+
+  async redefinirSenha({ email, newSenha, confirmSenha }: RedefinirSenhaDTO) {
+    
     if (!email || !newSenha || !confirmSenha) {
       throw new BadRequestError("Preencha todos os campos");
     }

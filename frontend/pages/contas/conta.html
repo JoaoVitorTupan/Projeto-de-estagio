@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Contas</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/compartilhados/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/contas/conta.css"
+    >
+
+</head>
+
+
+<body class="dashboard">
+
+
+    <header id="navbarGlobal" class="navbar-global" data-pagina="contas"></header>
+
+
+    
+
+    <div class="top-bar">
+
+        <h1>
+            Contas
+        </h1>
+
+    </div>
+
+
+    <hr>
+
+
+    
+
+    <div class="dvCaixas">
+
+
+        <div>
+
+            <b>
+                Total de Contas
+            </b>
+
+            <br>
+
+            <span id="totalContas">
+                0
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Receitas
+            </b>
+
+            <br>
+
+            <span id="totalReceitas">
+                0
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Despesas
+            </b>
+
+            <br>
+
+            <span id="totalDespesas">
+                0
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Em Aberto
+            </b>
+
+            <br>
+
+            <span id="totalContasAbertas">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="dvBusca">
+
+        <input
+            type="text"
+            id="campoBusca"
+            placeholder="Digite a descrição da conta..."
+        >
+
+
+        <button
+            type="button"
+            class="btnBuscar"
+            id="botaoBuscar"
+        >
+            Buscar
+        </button>
+
+
+        <button
+            type="button"
+            class="btnAdicionar"
+            id="botaoAdicionar"
+        >
+            Adicionar
+        </button>
+
+    </div>
+
+
+    
+
+    <div class="dvTabela">
+
+        <table class="tabela">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Tipo
+                    </th>
+
+                    <th>
+                        Descrição
+                    </th>
+
+                    <th>
+                        Valor
+                    </th>
+
+                    <th>
+                        Cliente / Fornecedor
+                    </th>
+
+                    <th>
+                        Plano de Contas
+                    </th>
+
+                    <th>
+                        Vencimento
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Ações
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tabelaContas">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    
+
+    <div id="containerModais"></div>
+
+    <script src="../../js/compartilhados/modalPerfil.js"></script>
+    <script src="../../js/compartilhados/navbar.js"></script>
+    <script src="../../js/contas/conta.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Modal Conta</title>
+
+</head>
+
+
+<body>
+
+
+    
+
+    <div
+        id="modalOverlay"
+        class="modal-overlay"
+        aria-hidden="true"
+    >
+
+        <div
+            id="modal"
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitulo"
+        >
+
+
+            
+
+            <div class="modal-header">
+
+                <h2 id="modalTitulo">
+                    Adicionar nova conta
+                </h2>
+
+
+                <button
+                    type="button"
+                    id="botaoFecharModal"
+                    class="botaoFecharModal"
+                    title="Fechar"
+                    aria-label="Fechar modal"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+
+            
+
+            <div class="modal-body">
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="tipo">
+                        Tipo
+                    </label>
+
+                    <select
+                        id="tipo"
+                        name="tipo"
+                    >
+
+                        <option value="">
+                            Selecione o tipo
+                        </option>
+
+                        <option value="receita">
+                            Receita
+                        </option>
+
+                        <option value="despesa">
+                            Despesa
+                        </option>
+
+                    </select>
+
+
+                    <span
+                        id="tipoErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="descricao">
+                        Descrição
+                    </label>
+
+                    <input
+                        type="text"
+                        id="descricao"
+                        name="descricao"
+                        placeholder="Digite a descrição da conta"
+                    >
+
+
+                    <span
+                        id="descricaoErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="valor">
+                        Valor
+                    </label>
+
+                    <input
+                        type="number"
+                        id="valor"
+                        name="valor"
+                        placeholder="0,00"
+                        min="0"
+                        step="0.01"
+                    >
+
+
+                    <span
+                        id="valorErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="dataVencimento">
+                        Data de vencimento
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dataVencimento"
+                        name="data_vencimento"
+                    >
+
+
+                    <span
+                        id="dataVencimentoErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="clienteOuFornecedor">
+                        Cliente / Fornecedor
+                    </label>
+
+                    <select
+                        id="clienteOuFornecedor"
+                        name="clienteOuFornecedor"
+                    >
+
+                        <option value="">
+                            Selecione um cliente ou fornecedor
+                        </option>
+
+                    </select>
+
+
+                    <span
+                        id="clienteOuFornecedorErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+
+                
+
+                <div class="campoFormulario">
+
+                    <label for="planoDeConta">
+                        Plano de Contas
+                    </label>
+
+                    <select
+                        id="planoDeConta"
+                        name="planoDeConta"
+                    >
+
+                        <option value="">
+                            Selecione um plano de contas
+                        </option>
+
+                    </select>
+
+
+                    <span
+                        id="planoDeContaErro"
+                        class="error-message"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    id="botaoCancelarModal"
+                    class="btnCancelar"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    type="button"
+                    id="botaoSalvar"
+                    class="btnSalvar"
+                >
+                    Salvar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

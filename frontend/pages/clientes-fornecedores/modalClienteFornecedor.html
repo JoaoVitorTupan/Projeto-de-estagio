@@ -1,0 +1,282 @@
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <div class="modal-header">
+
+            <h2 class="modal-title" id="modalTitulo">
+                Adicionar novo cliente ou fornecedor
+            </h2>
+
+            <button type="button" class="btn-close" id="botaoFecharModal" aria-label="Fechar"> &times;
+            </button>
+        </div>
+
+        <div class="steps">
+            <div class="step active" id="indicadorEtapa1">
+
+                <div class="step-number">1</div>
+
+                <span>Dados</span>
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step" id="indicadorEtapa2">
+
+                <div class="step-number">2</div>
+
+                <span>Endereço</span>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="step-content active" id="etapa1">
+
+                <h3 class="section-title">Dados do cliente/fornecedor</h3>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="tipo">
+                            Tipo <span>*</span>
+                        </label>
+
+                        <select id="tipo">
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="cliente">
+                                Cliente
+                            </option>
+
+                            <option value="fornecedor">
+                                Fornecedor
+                            </option>
+                        </select>
+
+                        <div class="error-message" id="tipoErro">
+                            Selecione o tipo.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome">
+                            Nome <span>*</span>
+                        </label>
+
+                        <input type="text" id="nome" placeholder="Nome completo ou razão social">
+                        <div class="error-message" id="nomeErro">
+                            Informe o nome.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">
+                            Telefone <span>*</span>
+                        </label>
+
+                        <input type="text" id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+                        <div class="error-message" id="telefoneErro">
+                            Informe um telefone válido.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            E-mail <span>*</span>
+                        </label>
+
+                        <input type="email" id="email" placeholder="email@exemplo.com">
+                        <div class="error-message" id="emailErro">
+                            Informe um e-mail válido.
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>
+                            Documento <span>*</span>
+                        </label>
+
+                        <div class="document-type">
+                            <label class="document-option" for="selecionarCpf">
+
+                                <input type="radio" name="tipoDocumento" id="selecionarCpf" value="cpf" checked>
+
+                                CPF
+                            </label>
+
+                            <label class="document-option" for="selecionarCnpj">
+
+                                <input type="radio" name="tipoDocumento" id="selecionarCnpj" value="cnpj">
+
+                                CNPJ
+                            </label>
+                        </div>
+
+                        <input type="text" id="documento" placeholder="000.000.000-00" maxlength="14">
+
+                        <div class="error-message" id="documentoErro">
+
+                            Informe um CPF válido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-content" id="etapa2">
+
+                <h3 class="section-title">Endereço</h3>
+
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label for="cep">
+                            CEP <span>*</span>
+                        </label>
+
+                        <div class="cep-wrapper">
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+
+                            <button type="button" class="btn-search-cep" id="botaoBuscarCep">
+
+                                Buscar CEP
+                            </button>
+                        </div>
+
+                        <div class="cep-status" id="statusCep">
+                        </div>
+
+                        <div class="error-message" id="cepErro">
+
+                            Informe um CEP válido.
+                        </div>
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label for="logradouro">
+                            Logradouro <span>*</span>
+                        </label>
+
+
+                        <input type="text" id="logradouro" placeholder="Rua, Avenida, etc.">
+
+
+                        <div class="error-message" id="logradouroErro">
+                            Informe o logradouro.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numero">
+                            Número <span>*</span>
+                        </label>
+
+                        <input type="text" id="numero" placeholder="Número">
+
+                        <div class="error-message" id="numeroErro">
+                            Informe o número.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complemento">
+                            Complemento
+                        </label>
+
+                        <input type="text" id="complemento" placeholder="Apto, sala, bloco...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bairro">
+                            Bairro <span>*</span>
+                        </label>
+
+                        <input type="text" id="bairro">
+
+                        <div class="error-message" id="bairroErro">
+                            Informe o bairro.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">
+                            Cidade <span>*</span>
+                        </label>
+
+                        <input type="text" id="cidade">
+
+                        <div class="error-message" id="cidadeErro">
+                            Informe a cidade.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uf">
+                            UF <span>*</span>
+                        </label>
+
+                        <select id="uf">
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+
+                        <div class="error-message" id="ufErro">
+                            Informe a UF.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="footer-left">
+                <button type="button" class="btn btn-secondary" id="botaoCancelarModal">
+                    Cancelar
+                </button>
+            </div>
+
+            <div class="footer-right">
+                <button type="button" class="btn btn-secondary" id="botaoVoltar" style="display: none;">
+                    Voltar
+                </button>
+
+                <button type="button" class="btn btn-primary" id="botaoProximo">
+                    Próximo
+                </button>
+
+                <button type="button" class="btn btn-success" id="botaoSalvar" style="display: none;">
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

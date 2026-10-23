@@ -1,0 +1,161 @@
+
+
+<div
+    class="modal-overlay"
+    id="modalOverlay"
+>
+
+    <div class="modal">
+
+
+        
+
+        <div class="modal-header">
+
+            <h2
+                class="modal-title"
+                id="modalTitulo"
+            >
+                Adicionar novo plano de contas
+            </h2>
+
+
+            <button
+                type="button"
+                class="btn-close"
+                id="botaoFecharModal"
+                aria-label="Fechar"
+            >
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        
+
+        <div class="modal-body">
+
+
+            <h3 class="section-title">
+                Dados do plano de contas
+            </h3>
+
+
+            <div class="form-grid">
+
+
+                
+
+                <div class="form-group full">
+
+                    <label for="nome">
+
+                        Nome
+                        <span class="obrigatorio">*</span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Nome do plano de contas"
+                        maxlength="150"
+                    >
+
+
+                    <div
+                        class="error-message"
+                        id="nomeErro"
+                    >
+
+                        Informe o nome do plano de contas.
+
+                    </div>
+
+                </div>
+
+
+                
+
+                <div class="form-group full">
+
+                    <label for="descricao">
+
+                        Descrição
+
+                    </label>
+
+
+                    <textarea
+                        id="descricao"
+                        placeholder="Digite uma descrição para o plano de contas..."
+                        maxlength="500"
+                        rows="5"
+                    ></textarea>
+
+
+                    <div
+                        class="error-message"
+                        id="descricaoErro"
+                    >
+
+                        A descrição deve possuir no máximo
+                        500 caracteres.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        
+
+        <div class="modal-footer">
+
+
+            
+
+            <div class="footer-left">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="botaoCancelarModal"
+                >
+
+                    Cancelar
+
+                </button>
+
+            </div>
+
+
+            
+
+            <div class="footer-right">
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    id="botaoSalvar"
+                >
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

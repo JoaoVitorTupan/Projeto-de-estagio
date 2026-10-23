@@ -1,0 +1,55 @@
+<div
+    class="modalPerfil"
+    id="modalPerfil"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloPerfil"
+    aria-describedby="descricaoPerfil"
+>
+    <div class="conteudoModalPerfil">
+        <div class="cabecalhoPerfil">
+            <div>
+                <h2 id="tituloPerfil">Meu Perfil</h2>
+                <p id="descricaoPerfil">Consulte seus dados de usuário.</p>
+            </div>
+
+            <button
+                type="button"
+                class="btnFecharPerfil"
+                id="btnFecharPerfil"
+                aria-label="Fechar perfil"
+            >
+                &times;
+            </button>
+        </div>
+
+        <div class="corpoPerfil">
+            <div class="campo-perfil">
+                <strong>Nível de Acesso</strong>
+                <p id="roleUsuario">Carregando...</p>
+            </div>
+
+            <div class="campo-perfil">
+                <strong>Nome</strong>
+                <p id="nomeUsuario">Carregando...</p>
+            </div>
+
+            <div class="campo-perfil">
+                <strong>Email</strong>
+                <p id="emailUsuario">Carregando...</p>
+            </div>
+
+            <div class="campo-perfil">
+                <strong>Senha</strong>
+                <p>
+                    <a
+                        href="../autenticacao/redefinirSenha.html"
+                        id="alterarSenhaPerfil"
+                    >
+                        Alterar senha
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

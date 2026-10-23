@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Redefinir senha</title>
+  <link rel="stylesheet" href="../../css/autenticacao/redefinirSenha.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="auth-container">
+    <h2>Redefinir senha</h2>
+
+    <input type="email" id="email" placeholder="Email">
+
+    <div class="senha-container">
+      <input type="password" id="newSenha" name="newSenha" placeholder="Nova senha" minlength="8" required>
+      <img src="../../assets/olho-off.png" id="mostrarNewSenha" alt="Mostrar senha">
+    </div>
+
+    <div class="senha-container">
+      <input type="password" id="confirmSenha" name="confirmSenha" placeholder="Confirmar nova senha">
+      <img src="../../assets/olho-off.png" id="mostrarConfirmSenha" alt="Mostrar senha">
+    </div>
+
+    <button onclick="redefinirSenha()">Redefinir</button>
+
+    <p id="error"></p>
+  </div>
+
+  <script src="../../js/autenticacao/redefinirSenha.js"></script>
+</body>
+</html>

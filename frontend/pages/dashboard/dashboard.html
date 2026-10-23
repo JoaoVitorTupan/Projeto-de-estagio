@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/compartilhados/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/dashboard/dashboard.css"
+    >
+
+</head>
+
+
+<body class="dashboard">
+
+
+    <header id="navbarGlobal" class="navbar-global" data-pagina="dashboard"></header>
+
+
+    
+
+    <div class="top-bar">
+
+        <h1>
+            Dashboard
+        </h1>
+
+    </div>
+
+
+    <hr>
+
+    <section class="secaoDashboard">
+
+        <h2>
+            Próximos vencimentos
+        </h2>
+
+        <p class="notaDashboard">
+            Contas em aberto, com vencimento a partir de hoje, dentro do período selecionado.
+        </p>
+
+        <div class="dvTabela">
+
+            <table class="tabela">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Tipo
+                        </th>
+
+                        <th>
+                            Descrição
+                        </th>
+
+                        <th>
+                            Cliente / Fornecedor
+                        </th>
+
+                        <th>
+                            Valor
+                        </th>
+
+                        <th>
+                            Vencimento
+                        </th>
+
+                        <th>
+                            Prazo
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaVencimentos">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section class="secaoDashboard">
+
+        <h2>
+            Período
+        </h2>
+
+
+        <div class="gridFiltros">
+
+            <div class="campoFiltro">
+
+                <label for="filtroMes">
+                    Mês
+                </label>
+
+                <select id="filtroMes"></select>
+
+            </div>
+
+
+            <div class="campoFiltro">
+
+                <label for="filtroAno">
+                    Ano
+                </label>
+
+                <select id="filtroAno"></select>
+
+            </div>
+
+
+            <div class="campoFiltro">
+
+                <label for="filtroTipo">
+                    Exibir
+                </label>
+
+                <select id="filtroTipo">
+
+                    <option value="todos">
+                        Receitas e despesas
+                    </option>
+
+                    <option value="receita">
+                        Somente receitas
+                    </option>
+
+                    <option value="despesa">
+                        Somente despesas
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="mensagem"
+            class="mensagem"
+            role="status"
+        ></div>
+
+    </section>
+
+
+    
+
+    <div class="dvCaixas">
+
+        <div>
+
+            <b>
+                A Pagar
+            </b>
+
+            <br>
+
+            <span id="totalAPagar">
+                -
+            </span>
+
+            <small id="detalheAPagar" class="detalheCaixa"></small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                A Receber
+            </b>
+
+            <br>
+
+            <span id="totalAReceber">
+                -
+            </span>
+
+            <small id="detalheAReceber" class="detalheCaixa"></small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Vencidos
+            </b>
+
+            <br>
+
+            <span id="totalVencido">
+                -
+            </span>
+
+            <small id="detalheVencido" class="detalheCaixa"></small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Saldo Projetado
+            </b>
+
+            <br>
+
+            <span id="saldoProjetado">
+                -
+            </span>
+
+            <small id="detalheSaldo" class="detalheCaixa"></small>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="dvCaixas">
+
+        <div>
+
+            <b>
+                Pendentes
+            </b>
+
+            <br>
+
+            <span id="qtdPendentes">
+                -
+            </span>
+
+            <small class="detalheCaixa">em aberto, a vencer</small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Pagas
+            </b>
+
+            <br>
+
+            <span id="qtdPagas">
+                -
+            </span>
+
+            <small class="detalheCaixa" id="detalhePagas"></small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Recebidas
+            </b>
+
+            <br>
+
+            <span id="qtdRecebidas">
+                -
+            </span>
+
+            <small class="detalheCaixa" id="detalheRecebidas"></small>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Títulos Vencidos
+            </b>
+
+            <br>
+
+            <span id="qtdVencidas">
+                -
+            </span>
+
+            <small class="detalheCaixa">não pagos nem recebidos</small>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <section class="secaoDashboard">
+
+        <h2>
+            Alertas
+        </h2>
+
+        <p class="notaDashboard">
+            Situação atual das contas pendentes, independente do período selecionado.
+        </p>
+
+        <div id="listaAlertas" class="listaAlertas"></div>
+
+    </section>
+
+
+    
+
+    <section class="secaoDashboard">
+
+        <h2 id="tituloGrafico">
+            Movimentação do mês
+        </h2>
+
+        <p class="notaDashboard">
+            Valores agrupados pela data de vencimento. O sistema não registra a data em que cada conta foi paga ou recebida.
+        </p>
+
+        <div id="legendaGrafico" class="legendaGrafico"></div>
+
+        <div id="areaGrafico" class="areaGrafico"></div>
+
+    </section>
+
+    <div id="containerModais"></div>
+
+    <script src="../../js/compartilhados/modalPerfil.js"></script>
+    <script src="../../js/compartilhados/navbar.js"></script>
+    <script src="../../js/dashboard/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #FAFAFA;
+  color: #2c3e50;
+  padding: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.auth-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container > * {
+  margin-bottom: 16px;
+}
+
+.auth-container > *:last-child {
+  margin-bottom: 0;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.senha-container {
+  position: relative;
+}
+
+.senha-container input {
+  padding-right: 40px;
+}
+
+.senha-container img {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.senha-container img:hover {
+  opacity: 1;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 11px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-container button:hover {
+  background: #222;
+}
+
+#error {
+  color: red;
+  font-size: 13px;
+}

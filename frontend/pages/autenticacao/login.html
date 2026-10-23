@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/autenticacao/login.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="auth-container">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Email">
+
+    <div class="senha-container">
+      <input type="password" id="senha" placeholder="Senha">
+      <img 
+        src="../../assets/olho-off.png" 
+        id="mostrarSenha" 
+        alt="Mostrar senha"
+      >
+    </div>
+
+    <p class="redefinirSenha">
+      <a href="redefinirSenha.html">Esqueci minha senha</a>
+    </p>
+
+    <button onclick="login()">Entrar</button>
+    <p id="error"></p>
+  </div>
+
+  <script src="../../js/autenticacao/login.js"></script>
+</body>
+</html>

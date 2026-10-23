@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Usuários</title>
+
+    <link rel="stylesheet" href="../../css/compartilhados/navbar.css">
+    <link rel="stylesheet" href="../../css/usuarios/usuario.css">
+</head>
+
+<body class="dashboard">
+
+    <header id="navbarGlobal" class="navbar-global" data-pagina="usuarios"></header>
+
+    <div class="top-bar">
+
+        <h1>Gerenciamento de Usuários</h1>
+
+    </div>
+
+    <hr>
+
+    <div class="container">
+
+        <div class="acoes-usuarios">
+
+            <input
+                type="text"
+                id="busca"
+                class="campo-busca"
+                placeholder="Buscar usuário..."
+            >
+
+            <button
+                type="button"
+                class="btnBuscar"
+                id="btnBuscar"
+            >
+                Buscar
+            </button>
+
+            <button
+                type="button"
+                class="btnCadadastrar"
+                id="btnCadadastrar"
+            >
+                Cadastrar
+            </button>
+
+        </div>
+
+        <div class="dvTabela">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="usuariosTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div id="containerModais"></div>
+
+    <script src="../../js/compartilhados/navbar.js"></script>
+    <script src="../../js/compartilhados/modalPerfil.js"></script>
+    <script src="../../js/usuarios/usuario.js"></script>
+</body>
+
+</html>

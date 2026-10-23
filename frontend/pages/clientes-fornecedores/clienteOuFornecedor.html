@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes e Fornecedores</title>
+  <link rel="stylesheet" href="../../css/compartilhados/navbar.css">
+  <link rel="stylesheet" href="../../css/clientes-fornecedores/clienteOuFornecedor.css">
+</head>
+
+<body class="dashboard">
+  <header id="navbarGlobal" class="navbar-global" data-pagina="clientes-fornecedores"></header>
+
+  <div class="top-bar">
+    <h1>
+      Clientes e Fornecedores
+    </h1>
+  </div>
+
+  <hr>
+
+  <div class="dvCaixas">
+
+    <div>
+      <b>
+        Total de Registros
+      </b>
+
+      <br>
+
+      <span id="totalClienteOuFornecedor">
+        0
+      </span>
+    </div>
+
+    <div>
+      <b>
+        Clientes
+      </b>
+
+      <br>
+
+      <span id="totalClientes">
+        0
+      </span>
+    </div>
+
+    <div>
+      <b>
+        Fornecedores
+      </b>
+
+      <br>
+
+      <span id="totalFornecedores">
+        0
+      </span>
+    </div>
+  </div>
+
+  <div class="dvBusca">
+    <input
+      type="text"
+      id="campoBusca"
+      placeholder="Digite o nome ou CPF/CNPJ..."
+    >
+
+    <button type="button" class="btnBuscar" id="botaoBuscar">Buscar</button>
+    <button type="button" class="btnAdicionar" id="botaoAdicionar">Adicionar</button>
+  </div>
+
+  <div class="dvTabela">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>
+            Tipo
+          </th>
+
+          <th>
+            Nome
+          </th>
+
+          <th>
+            CPF/CNPJ
+          </th>
+
+          <th>
+            E-mail
+          </th>
+
+          <th>
+            Telefone
+          </th>
+
+          <th>
+            Status
+          </th>
+
+          <th>
+            Ações
+          </th>
+        </tr>
+      </thead>
+
+      <tbody id="tabelaClienteOuFornecedor">
+      </tbody>
+    </table>
+  </div>
+
+  <div id="containerModais"></div>
+
+  <script src="../../js/compartilhados/navbar.js"></script>
+  <script src="../../js/compartilhados/modalPerfil.js"></script>
+  <script src="../../js/clientes-fornecedores/clienteOuFornecedor.js"></script>
+
+</body>
+</html>
